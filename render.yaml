@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: progress-journal
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: DATA_DIR
+        value: "/var/data"
+      - key: DEMO_SEED
+        value: "false"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DIRECTOR_PASSWORD
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
+# Постоянное хранение данных (план Starter и выше):
+# добавьте в сервис диск и раскомментируйте блок:
+#    disk:
+#      name: data
+#      mountPath: /var/data
+#      sizeGB: 1
