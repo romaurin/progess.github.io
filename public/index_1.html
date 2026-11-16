@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Вход в систему — Progress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="login-shell">
+      <aside class="side">
+        <div class="side-top">
+          <div class="brand">
+            <span class="brand-mark">P</span>
+            <div>
+              <b>Progress</b>
+              <span>Электронный журнал колледжа</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pitch">
+          <b>Успеваемость под контролем</b>
+          <p>Следите за оценками, посещаемостью и расписанием в реальном времени с любого устройства.</p>
+        </div>
+
+        <div class="side-stats" aria-label="Показатели системы">
+          <div class="mini-stat">
+            <strong>24/7</strong>
+            <span>доступ</span>
+          </div>
+          <div class="mini-stat">
+            <strong>98%</strong>
+            <span>точность</span>
+          </div>
+          <div class="mini-stat">
+            <strong>5 min</strong>
+            <span>обновление</span>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="card">
+          <form id="f" novalidate>
+            <div class="eyebrow">Progress</div>
+            <h1>Вход в систему</h1>
+            <p class="sub">Введите данные для входа в электронный журнал</p>
+
+            <label for="em">Логин или Email</label>
+            <input id="em" placeholder="Введите логин" autocomplete="username" spellcheck="false">
+
+            <label for="pw">Пароль</label>
+            <div class="f">
+              <input id="pw" type="password" placeholder="Введите пароль" autocomplete="current-password">
+              <button type="button" class="eye" id="eye" aria-label="Показать пароль">Показать</button>
+            </div>
+
+            <div class="row">
+              <label class="chk">
+                <input id="remember" type="checkbox">
+                <span>Запомнить меня</span>
+              </label>
+              <a href="#">Забыли пароль?</a>
+            </div>
+
+            <div class="err" id="e" role="alert" aria-live="polite"></div>
+
+            <button class="go" type="submit">Войти в личный кабинет</button>
+
+            <div class="or"><span>или</span></div>
+
+            <a class="google-login" href="/auth/google">
+              <span class="google-mark" aria-hidden="true">G</span>
+              <span>Продолжить с Google</span>
+            </a>
+
+            <div class="foot">Нет аккаунта? <a href="#contact-admin" id="openContact">Обратитесь к администратору</a></div>
+          </form>
+          <section class="contact-panel" id="contactPanel" hidden aria-labelledby="contactTitle">
+            <button class="contact-back" id="contactBack" type="button">← Вернуться ко входу</button>
+            <h2 id="contactTitle">Обращение администратору</h2>
+            <p class="sub">Укажите, как с вами связаться. Сообщение появится в панели администратора.</p>
+            <form id="supportForm">
+              <label for="supportName">Ваше имя</label>
+              <input id="supportName" name="name" required minlength="2" maxlength="100" autocomplete="name">
+              <label for="supportLogin">Логин</label>
+              <input id="supportLogin" name="login" required maxlength="64" autocomplete="username">
+              <label for="supportContact">Email или телефон для ответа</label>
+              <input id="supportContact" name="contact" required maxlength="254" autocomplete="email">
+              <label for="supportSubject">Тема обращения</label>
+              <select id="supportSubject" name="subject" required>
+                <option>Не могу войти</option>
+                <option>Нет аккаунта</option>
+                <option>Смена данных</option>
+                <option>Другое</option>
+              </select>
+              <label for="supportMessage">Что произошло</label>
+              <textarea id="supportMessage" name="message" required minlength="10" maxlength="2000" rows="4"></textarea>
+              <p class="contact-status" id="supportStatus" role="status" aria-live="polite"></p>
+              <button class="go" id="supportSubmit" type="submit">Отправить обращение</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
